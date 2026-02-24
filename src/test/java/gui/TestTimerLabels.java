@@ -5,12 +5,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import states.timer.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 class TestTimerLabels extends TestGUIAbstract {
+
+	private static final Logger logger = LoggerFactory.getLogger(TestTimerLabels.class);
 
 	void assertTimerLabels(AbstractTimer state) {
 		c.currentState = state;
 		String stateName = state.getClass().getSimpleName();
-		System.out.println(stateName);
+		logger.info(stateName);
 		g.updateUI(c);
 		assertEquals(g.b1.getText(),c.getLeftText(),"button 1 for state " + stateName);
 		assertEquals(g.b2.getText(),c.getUpText(),"button 2 for state " + stateName);

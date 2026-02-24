@@ -1,6 +1,11 @@
 package states;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public abstract class ClockState {
+    
+    private static final Logger logger = LoggerFactory.getLogger(ClockState.class);
 	
     public abstract ClockState left(); // button 1 pressed
     public String getLeftText() { return "change mode"; } // text to display on button 1
@@ -27,11 +32,13 @@ public abstract class ClockState {
     // entry and exit and do actions can be redefined by, and are only visible to, substates
     protected void entry() {
     	// the entry action of the state, which is empty (no action) by default
-    	System.out.println("entering " + this.getClass().getName()); }; 
+    	logger.info("entering {}", this.getClass().getName());
+    }; 
     	
     protected void exit() {
     	// the exit action of the state, which is empty (no action) by default
-    	System.out.println("exiting " + this.getClass().getName()); };
+    	logger.info("exiting {}", this.getClass().getName());
+    };
     	
     protected ClockState doIt() {
     	// specific behaviour to be implemented in each state.

@@ -16,6 +16,7 @@ public abstract class AbstractTimer extends ClockState {
 	// need to be shared between all Timer substates.
 	protected static int timer;
 	protected static int memTimer;
+	protected static boolean ringing = false;
 
     // these getters are needed for testing purposes
 	public static int getTimer() {return timer;}
@@ -24,6 +25,7 @@ public abstract class AbstractTimer extends ClockState {
 	public static void resetInitialValues() {
     	timer = 0;
     	memTimer = 0;
+    	ringing = false;
     }
 
 	// use Singleton design pattern
@@ -45,6 +47,10 @@ public abstract class AbstractTimer extends ClockState {
     	// go to the history state of the Stopwatch STM
     	return transition(AbstractStopwatch.historyState);    	
     }
+
+	public static boolean isRinging() {
+		return ringing;
+	}
 
     public Mode getMode() {
         return Mode.timer;

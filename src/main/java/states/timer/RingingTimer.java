@@ -13,6 +13,18 @@ public class RingingTimer extends ActiveTimer {
     }
     
     @Override
+    protected void entry() {
+    	super.entry();
+    	AbstractTimer.ringing = true;
+    }
+    
+    @Override
+    protected void exit() {
+    	super.exit();
+    	AbstractTimer.ringing = false;
+    } 
+
+    @Override
     public ClockState doIt() {
     	java.awt.Toolkit.getDefaultToolkit().beep();
     	return this;
