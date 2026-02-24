@@ -13,6 +13,7 @@ class StopwatchTests {
 	private ClockState current, newState;
 
 	@BeforeEach
+	@DisplayName("Initialise the state machine context and set the current state to the initial state of the stopwatch")
 	void setup() {
         context = new Context(); // create the state machine context
         AbstractStopwatch.resetInitialValues();
@@ -20,6 +21,7 @@ class StopwatchTests {
 	}
 		
 	@org.junit.jupiter.api.Test
+	@DisplayName("Test the initial state of the stopwatch")
 	void testInitialState() {
 		//context.tick(); //no tick() needed for this test;
 		/* When initialising the context (see setup() method above)
@@ -35,12 +37,14 @@ class StopwatchTests {
 	}
 
 	@org.junit.jupiter.api.Test
+	@DisplayName("Test the initial state of the composite state AbstractStopwatch")
 	void testInitialAbstractStopwatch() {
 		// The initial state of composite state AbstractStopwatch should be ResetStopwatch
 		assertSame(AbstractStopwatch.Instance(), ResetStopwatch.Instance());
 	}
 	
 	@Test
+	@DisplayName("Test the history state of the composite state AbstractStopwatch")
 	void testHistoryState() {
 		current = AbstractStopwatch.Instance();
 		// after processing the left() event, we should arrive in the initial state of AbstractStopwatch
