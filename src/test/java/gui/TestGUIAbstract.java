@@ -1,6 +1,8 @@
 package gui;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+
 import states.Context;
 import states.timer.AbstractTimer;
 
@@ -10,6 +12,7 @@ abstract class TestGUIAbstract {
 	protected HeadlessGUI g;
 
     @BeforeEach
+	@DisplayName("Setup the GUI and Context for testing")
 	void setup() {
     	c = new Context();
 

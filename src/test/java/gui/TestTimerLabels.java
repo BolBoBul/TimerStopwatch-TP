@@ -12,6 +12,7 @@ class TestTimerLabels extends TestGUIAbstract {
 
 	private static final Logger logger = LoggerFactory.getLogger(TestTimerLabels.class);
 
+	@DisplayName("Test the labels of the timer mode for all timer states")
 	void assertTimerLabels(AbstractTimer state) {
 		c.currentState = state;
 		String stateName = state.getClass().getSimpleName();
@@ -22,6 +23,7 @@ class TestTimerLabels extends TestGUIAbstract {
 		assertEquals(g.b3.getText(),c.getRightText(),"button 3 for state " + stateName);
 	}
 	@Test
+	@DisplayName("Test the labels of the timer mode for all timer states")
 	void testIdleTimerLabels() {
 		assertTimerLabels(IdleTimer.Instance());
 		assertTimerLabels(PausedTimer.Instance());
@@ -31,6 +33,7 @@ class TestTimerLabels extends TestGUIAbstract {
 	}
 
    @Test
+   @DisplayName("Test the labels of the timer mode in IdleTimer state")
    void testTimerButtonLabels1() {
 		g.updateUI(c);
 		assertEquals("change mode",g.b1.getText());
@@ -42,6 +45,7 @@ class TestTimerLabels extends TestGUIAbstract {
 	};
 
 	@Test
+	@DisplayName("Test the labels of the timer mode in SetTimer state")
 	void testTimerButtonLabels2() {
 		c.right(); //simulate clicking on the left button
 		g.updateUI(c); //apply the effect on the user interface

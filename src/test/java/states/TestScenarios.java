@@ -11,6 +11,7 @@ class TestScenarios {
 	Context c;
 	
     @BeforeEach
+	@DisplayName("Initialise the state machine context and reset the timer values")
 	void setup() {
     	c = new Context();
      	//before each test, reset the timer values to avoid interference between tests:
@@ -20,6 +21,7 @@ class TestScenarios {
     
   //This is more a kind of integration test than a real unit test	
   @Test
+  @DisplayName("Complete scenario test")
   void completeScenario() {
 	  assertEquals(IdleTimer.Instance(),c.currentState);
 	  assertEquals(0,AbstractTimer.getMemTimer());
