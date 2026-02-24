@@ -1,0 +1,14 @@
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+
+# Documentation for all dependabot configuration options, see:
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
